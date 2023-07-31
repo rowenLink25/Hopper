@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import GooglePlaces
+
 
 @main
 struct HopperApp: App {
     var body: some Scene {
+        
         WindowGroup {
             ContentView()
         }
