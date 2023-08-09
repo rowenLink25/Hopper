@@ -30,5 +30,4 @@ struct HopperApp: App {
     }
 
 }
-       // Location-related properties and delegate methods.
     

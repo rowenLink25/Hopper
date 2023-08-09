@@ -7,7 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
-
+import CoreLocation
 
 func whichEmoji(numUsers : Int) -> String {
     if (numUsers < 0){
@@ -41,7 +41,7 @@ class barViewModel: ObservableObject {
     @Published var bars = [Bar]()
     
     private var db = Firestore.firestore()
-
+    
     func fetchData() {
         db.collection("bars").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
@@ -53,12 +53,13 @@ class barViewModel: ObservableObject {
                 let data = queryDocumentSnapshot.data()
                 let name = data["name"] as? String ?? ""
                 let image = data["image"] as? String ?? ""
-                let longitude = data["longitude"] as? Int ?? 0
-                let latitude = data["latitude"] as? Int ?? 0
+                let longitude = data["longitude"] as? String ?? ""
+                let latitude = data["latitude"] as? String ?? ""
                 let numUsers = data["numUsers"] as? Int ?? 0
                 let emoji = whichEmoji(numUsers : Int(numUsers))
-                return Bar(numUsers: numUsers, name: name, image: image, longitude: longitude, latitude: latitude, emoji: emoji)
+                return Bar(numUsers: numUsers, name: name, image: image, longitude: longitude, latitude: latitude, emoji: emoji, coordinates: CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0))
             }
         }
     }
 }
+

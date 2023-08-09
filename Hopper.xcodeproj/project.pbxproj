@@ -23,6 +23,8 @@
 		2C2A9A602A7AFE3200405F19 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2C2A9A5F2A7AFE3200405F19 /* FirebaseFirestore */; };
 		2C2A9A622A7AFE3800405F19 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C2A9A612A7AFE3800405F19 /* FirebaseFirestoreSwift */; };
 		2C2A9A642A7AFE7800405F19 /* BarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A9A632A7AFE7800405F19 /* BarViewModel.swift */; };
+		2C2A9A662A830E0600405F19 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A9A652A830E0600405F19 /* BarView.swift */; };
+		2C2A9A682A83291A00405F19 /* BarAnnotationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A9A672A83291A00405F19 /* BarAnnotationMapView.swift */; };
 		2C9D657D2A78432D008288FA /* HopperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D657C2A78432D008288FA /* HopperApp.swift */; };
 		2C9D657F2A78432D008288FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D657E2A78432D008288FA /* ContentView.swift */; };
 		2C9D65812A78432E008288FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C9D65802A78432E008288FA /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 		2C2A9A482A7ACF7400405F19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C2A9A5D2A7AFAC700405F19 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 		2C2A9A632A7AFE7800405F19 /* BarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarViewModel.swift; sourceTree = "<group>"; };
+		2C2A9A652A830E0600405F19 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		2C2A9A672A83291A00405F19 /* BarAnnotationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarAnnotationMapView.swift; sourceTree = "<group>"; };
 		2C9D65792A78432D008288FA /* Hopper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hopper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9D657C2A78432D008288FA /* HopperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HopperApp.swift; sourceTree = "<group>"; };
 		2C9D657E2A78432D008288FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,7 +107,9 @@
 				2C2A9A452A79A67000405F19 /* MKCooordinateRegionHelper.swift */,
 				2C2A9A5D2A7AFAC700405F19 /* Bar.swift */,
 				2C2A9A632A7AFE7800405F19 /* BarViewModel.swift */,
+				2C2A9A652A830E0600405F19 /* BarView.swift */,
 				2C9D65822A78432E008288FA /* Preview Content */,
+				2C2A9A672A83291A00405F19 /* BarAnnotationMapView.swift */,
 			);
 			path = Hopper;
 			sourceTree = "<group>";
@@ -264,12 +270,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C2A9A662A830E0600405F19 /* BarView.swift in Sources */,
 				2C9D657F2A78432D008288FA /* ContentView.swift in Sources */,
 				2C2A9A5E2A7AFAC700405F19 /* Bar.swift in Sources */,
 				2C2A9A462A79A67000405F19 /* MKCooordinateRegionHelper.swift in Sources */,
 				2C2A9A442A79805500405F19 /* MapScreenView.swift in Sources */,
 				2C9D65AD2A78637E008288FA /* LocationManager.swift in Sources */,
 				2C2A9A642A7AFE7800405F19 /* BarViewModel.swift in Sources */,
+				2C2A9A682A83291A00405F19 /* BarAnnotationMapView.swift in Sources */,
 				2C9D657D2A78432D008288FA /* HopperApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,8 +412,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hopper/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location at all times to properly update bar activity";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location at all times to properly update bar activity";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "(HIGHLY RECOMMENDED) This app needs your location at all times to properly update bar activity";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please select the always allow option";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -437,8 +445,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hopper/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location at all times to properly update bar activity";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location at all times to properly update bar activity";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "(HIGHLY RECOMMENDED) This app needs your location at all times to properly update bar activity";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please select the always allow option";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
