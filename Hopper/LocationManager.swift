@@ -15,7 +15,7 @@ final class LocationManager: NSObject, ObservableObject {
     override init() {
         super.init()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 3.0
+        locationManager.distanceFilter = 5.0
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
@@ -54,9 +54,42 @@ final class LocationManager: NSObject, ObservableObject {
 
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            guard let location = locations.last else { return }
-            DispatchQueue.main.async {
-                self.location = location
+        let newLocation = locations.last!
+        // We've been passed a cached result so ignore and continue.
+        if newLocation.timestamp.timeIntervalSinceNow < -5 {
+            return
+        }
+        // horizontalAccuracy < 0 indicates invalid result so ignore and continue.
+        if newLocation.horizontalAccuracy < 0 {
+            return
+        }
+        // Calculate the distance between the new and previous locations.
+        var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
+        if let location = location { // location is my previously stored value.
+            distance = newLocation.distance(from: location)
+        }
+        // If newLocation is more accurate than the previous (if previous exists) then use it.
+        if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
+//            lastLocationError = nil
+            location = newLocation
+
+            // When newLocation's accuracy is better than our desired accuracy then stop.
+            if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
+                location = location
             }
+        } else if distance < 5 {
+            let timeInterval = newLocation.timestamp.timeIntervalSince(location!.timestamp)
+            if timeInterval > 10 {
+                location = location
+            }
+        }
+
+        print(newLocation)
     }
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//            guard let location = locations.last else { return }
+//            DispatchQueue.main.async {
+//                self.location = location
+//            }
+//    }
 }

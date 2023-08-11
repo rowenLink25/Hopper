@@ -16,7 +16,7 @@ struct BarView: View {
                     AsyncImage(url: URL(string: bar.image)) { image in
                         image
                             .resizable()
-                            .scaledToFill()
+                            .scaledToFit()
                     } placeholder: {
                         ProgressView()
                     }

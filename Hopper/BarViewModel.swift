@@ -41,7 +41,6 @@ class barViewModel: ObservableObject {
     @Published var bars = [Bar]()
     
     private var db = Firestore.firestore()
-    
     func fetchData() {
         db.collection("bars").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {

@@ -12,7 +12,7 @@ import SwiftUI
 extension MKCoordinateRegion {
     
     static func cVilleRegion() -> MKCoordinateRegion {
-        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 38.03479716207155, longitude:  -78.50023596858671), latitudinalMeters: 1000, longitudinalMeters: 1000)
+        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 38.03479716207155, longitude:  -78.50023596858671), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     }
     
     func getBinding() -> Binding<MKCoordinateRegion>? {

@@ -30,7 +30,7 @@
 		2C9D65812A78432E008288FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C9D65802A78432E008288FA /* Assets.xcassets */; };
 		2C9D65842A78432E008288FA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C9D65832A78432E008288FA /* Preview Assets.xcassets */; };
 		2C9D65AD2A78637E008288FA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9D65AC2A78637E008288FA /* LocationManager.swift */; };
-		BE4A2D00D540D8D685291B54 /* libPods-Hopper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2306144C5DB37BE5F9CE2F /* libPods-Hopper.a */; };
+		2CFB28592A83FCBB00A4B9B0 /* BarPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFB28582A83FCBB00A4B9B0 /* BarPreviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +48,7 @@
 		2C9D65832A78432E008288FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2C9D65AC2A78637E008288FA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2C9D65AE2A7865EC008288FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		4B2306144C5DB37BE5F9CE2F /* libPods-Hopper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hopper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CFB28582A83FCBB00A4B9B0 /* BarPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarPreviewView.swift; sourceTree = "<group>"; };
 		A7E2E28C97AF1428840ED9C1 /* Pods-Hopper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hopper.release.xcconfig"; path = "Target Support Files/Pods-Hopper/Pods-Hopper.release.xcconfig"; sourceTree = "<group>"; };
 		AC86824C24B3F04B37A6B443 /* Pods-Hopper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hopper.debug.xcconfig"; path = "Target Support Files/Pods-Hopper/Pods-Hopper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +65,6 @@
 				2C2A9A4E2A7AD00500405F19 /* FirebaseDatabase in Frameworks */,
 				2C2A9A4C2A7AD00500405F19 /* FirebaseAnalytics in Frameworks */,
 				2C2A9A562A7AD00500405F19 /* FirebaseRemoteConfig in Frameworks */,
-				BE4A2D00D540D8D685291B54 /* libPods-Hopper.a in Frameworks */,
 				2C2A9A542A7AD00500405F19 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				2C2A9A602A7AFE3200405F19 /* FirebaseFirestore in Frameworks */,
 				2C2A9A522A7AD00500405F19 /* FirebaseInAppMessaging-Beta in Frameworks */,
@@ -82,7 +81,6 @@
 				2C9D657B2A78432D008288FA /* Hopper */,
 				2C9D657A2A78432D008288FA /* Products */,
 				6D4E419406C2F9CDA33A15D7 /* Pods */,
-				7B34683A22495BBE60E6336F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +108,7 @@
 				2C2A9A652A830E0600405F19 /* BarView.swift */,
 				2C9D65822A78432E008288FA /* Preview Content */,
 				2C2A9A672A83291A00405F19 /* BarAnnotationMapView.swift */,
+				2CFB28582A83FCBB00A4B9B0 /* BarPreviewView.swift */,
 			);
 			path = Hopper;
 			sourceTree = "<group>";
@@ -129,14 +128,6 @@
 				A7E2E28C97AF1428840ED9C1 /* Pods-Hopper.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		7B34683A22495BBE60E6336F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4B2306144C5DB37BE5F9CE2F /* libPods-Hopper.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2A9A662A830E0600405F19 /* BarView.swift in Sources */,
+				2CFB28592A83FCBB00A4B9B0 /* BarPreviewView.swift in Sources */,
 				2C9D657F2A78432D008288FA /* ContentView.swift in Sources */,
 				2C2A9A5E2A7AFAC700405F19 /* Bar.swift in Sources */,
 				2C2A9A462A79A67000405F19 /* MKCooordinateRegionHelper.swift in Sources */,

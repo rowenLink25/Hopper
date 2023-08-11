@@ -8,7 +8,11 @@
 import Foundation
 import CoreLocation
 
-struct Bar: Identifiable{
+struct Bar: Identifiable, Equatable{
+    static func == (lhs: Bar, rhs: Bar) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     var id : String = UUID().uuidString
     var numUsers : Int
     var name : String
