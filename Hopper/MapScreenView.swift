@@ -29,7 +29,6 @@ struct MapScreenView: View {
             }
             
         }
-        Text("Fuck off")
     }
     init(){
         viewModel.fetchData()

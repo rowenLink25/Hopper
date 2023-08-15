@@ -20,6 +20,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   }
 }
 
+
 @main
 struct HopperApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
