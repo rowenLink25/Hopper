@@ -33,7 +33,7 @@ struct BarView: View {
             .onAppear() {
                 self.viewModel.fetchData()
             }
-            .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.black/*@END_MENU_TOKEN@*/)
+            .background(Color(UIColor.systemBackground))
         }
     }
 }

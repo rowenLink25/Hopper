@@ -19,11 +19,8 @@ struct ContentView: View {
                         .ignoresSafeArea()
                         
                     VStack{
-                        Text("Hopper")
-                            .font(.title)
-                            .foregroundColor(/*@START_MENU_TOKEN@*/.red/*@END_MENU_TOKEN@*/)
-                            .multilineTextAlignment(.center)
-                            .padding(.bottom)
+                        Image("title")
+                            .scaledToFill()
                         BarView()
                         Spacer()
                         NavigationLink("Go to map")
