@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C14BBDA2A8BF9D300687389 /* BarUserLocationInteractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C14BBD92A8BF9D300687389 /* BarUserLocationInteractions.swift */; };
+		2C14BBDC2A8D393300687389 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C14BBDB2A8D393300687389 /* SceneDelegate.swift */; };
 		2C2A9A442A79805500405F19 /* MapScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A9A432A79805500405F19 /* MapScreenView.swift */; };
 		2C2A9A462A79A67000405F19 /* MKCooordinateRegionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A9A452A79A67000405F19 /* MKCooordinateRegionHelper.swift */; };
 		2C2A9A492A7ACF7400405F19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A9A482A7ACF7400405F19 /* GoogleService-Info.plist */; };
@@ -35,7 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C14BBD92A8BF9D300687389 /* BarUserLocationInteractions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarUserLocationInteractions.swift; sourceTree = "<group>"; };
+		2C14BBDB2A8D393300687389 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2C2A9A432A79805500405F19 /* MapScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenView.swift; sourceTree = "<group>"; };
 		2C2A9A452A79A67000405F19 /* MKCooordinateRegionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCooordinateRegionHelper.swift; sourceTree = "<group>"; };
 		2C2A9A482A7ACF7400405F19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 				2C9D65822A78432E008288FA /* Preview Content */,
 				2C2A9A672A83291A00405F19 /* BarAnnotationMapView.swift */,
 				2CFB28582A83FCBB00A4B9B0 /* BarPreviewView.swift */,
-				2C14BBD92A8BF9D300687389 /* BarUserLocationInteractions.swift */,
+				2C14BBDB2A8D393300687389 /* SceneDelegate.swift */,
 			);
 			path = Hopper;
 			sourceTree = "<group>";
@@ -269,9 +269,9 @@
 				2C9D657F2A78432D008288FA /* ContentView.swift in Sources */,
 				2C2A9A5E2A7AFAC700405F19 /* Bar.swift in Sources */,
 				2C2A9A462A79A67000405F19 /* MKCooordinateRegionHelper.swift in Sources */,
-				2C14BBDA2A8BF9D300687389 /* BarUserLocationInteractions.swift in Sources */,
 				2C2A9A442A79805500405F19 /* MapScreenView.swift in Sources */,
 				2C9D65AD2A78637E008288FA /* LocationManager.swift in Sources */,
+				2C14BBDC2A8D393300687389 /* SceneDelegate.swift in Sources */,
 				2C2A9A642A7AFE7800405F19 /* BarViewModel.swift in Sources */,
 				2C2A9A682A83291A00405F19 /* BarAnnotationMapView.swift in Sources */,
 				2C9D657D2A78432D008288FA /* HopperApp.swift in Sources */,

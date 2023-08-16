@@ -14,7 +14,6 @@ final class LocationManager: NSObject, ObservableObject {
     
     
     override init() {
-        print("initiating")
         super.init()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 5.0
@@ -64,20 +63,21 @@ extension LocationManager: CLLocationManagerDelegate {
             }
         
     }
-    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("entered location")
-    }
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print("exited location")
-    }
+//    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+//        print("entered location")
+//    }
+//    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+//        print("exited location")
+//    }
     func monitorRegionAtLocation(center: CLLocationCoordinate2D, identifier: String) {
-            
+
             if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+                print("viable")
                 let region = CLCircularRegion(center: center,
-                     radius: 50, identifier: identifier)
-                region.notifyOnEntry = false
-                region.notifyOnExit = false
-           
+                     radius: 100, identifier: identifier)
+                region.notifyOnEntry = true
+                region.notifyOnExit = true
+
                 locationManager.startMonitoring(for: region)
             }
      }

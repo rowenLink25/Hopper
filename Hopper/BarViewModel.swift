@@ -41,6 +41,35 @@ class barViewModel: ObservableObject {
     @Published var bars = [Bar]()
     
     private var db = Firestore.firestore()
+    
+    func fetchDataForUsage(completion: @escaping (Result<[Bar], Error>) -> Void) {
+        db.collection("bars").getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let documents = querySnapshot?.documents else {
+                completion(.success([]))
+                return
+            }
+            
+            let fetchedBars = documents.compactMap { (queryDocumentSnapshot) -> Bar? in
+                let data = queryDocumentSnapshot.data()
+                let name = data["name"] as? String ?? ""
+                let image = data["image"] as? String ?? ""
+                let longitude = data["longitude"] as? String ?? ""
+                let latitude = data["latitude"] as? String ?? ""
+                let numUsers = data["numUsers"] as? Int ?? 0
+                let emoji = whichEmoji(numUsers: numUsers)
+                return Bar(numUsers: numUsers, name: name, image: image, longitude: longitude, latitude: latitude, emoji: emoji, coordinates: CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0))
+            }
+            
+            self.bars = fetchedBars
+            completion(.success(fetchedBars))
+        }
+    }
+    
     func fetchData() {
         db.collection("bars").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
@@ -57,6 +86,23 @@ class barViewModel: ObservableObject {
                 let numUsers = data["numUsers"] as? Int ?? 0
                 let emoji = whichEmoji(numUsers : Int(numUsers))
                 return Bar(numUsers: numUsers, name: name, image: image, longitude: longitude, latitude: latitude, emoji: emoji, coordinates: CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0))
+            }
+        }
+    }
+    func updateNumUsers(for barName: String, increment: Bool) {
+        let db = Firestore.firestore()
+        
+        db.collection("bars").document(barName).getDocument { (documentSnapshot, error) in
+            if let error = error {
+                print("Error fetching bar data:", error)
+                return
+            }
+            
+            if let document = documentSnapshot, document.exists {
+                var numUsers = document.data()?["numUsers"] as? Int ?? 0
+                numUsers += increment ? 1 : -1
+                
+                db.collection("bars").document(barName).updateData(["numUsers": numUsers])
             }
         }
     }

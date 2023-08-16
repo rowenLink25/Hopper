@@ -12,9 +12,11 @@ import CoreLocation
 
 struct ContentView: View {
     @ObservedObject private var viewModel = barViewModel()
+    @EnvironmentObject var sceneDelegate: SceneDelegate
     var body: some View {
             NavigationStack{
                 ZStack{
+                    
                     Color(UIColor.systemBackground)
                         .ignoresSafeArea()
                         

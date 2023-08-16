@@ -31,7 +31,7 @@ struct MapScreenView: View {
         }
     }
     init(){
-        viewModel.fetchData()
+        self.viewModel.fetchData()
     }
 }
 

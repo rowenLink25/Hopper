@@ -33,8 +33,6 @@ struct BarPreviewView: View {
             .cornerRadius(10)
             .padding(15)
             .shadow(color: Color.black.opacity(0.3), radius: 20)
-
-
         }
     }
 }
