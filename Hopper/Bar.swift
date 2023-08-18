@@ -13,7 +13,7 @@ struct Bar: Identifiable, Equatable{
         return lhs.id == rhs.id
     }
     
-    var id : String = UUID().uuidString
+    var id : String
     var numUsers : Int
     var name : String
     var image : String

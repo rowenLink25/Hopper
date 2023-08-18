@@ -21,7 +21,7 @@ final class LocationManager: NSObject, ObservableObject {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.showsBackgroundLocationIndicator = true
+        locationManager.showsBackgroundLocationIndicator = false
         locationManager.delegate = self
     }
 //    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {

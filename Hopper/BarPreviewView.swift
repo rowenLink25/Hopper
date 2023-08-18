@@ -40,7 +40,7 @@ struct BarPreviewView: View {
 struct BarPreviewView_Previews: PreviewProvider {
 
     static var previews: some View {
-        BarPreviewView(bar: Bar(numUsers: 0, name: "Trinity Irish Pub", image:
+        BarPreviewView(bar: Bar(id : "", numUsers: 0, name: "Trinity Irish Pub", image:
                                     "https://images.squarespace-cdn.com/content/v1/5f19bb5120413145c7d53efc/2eca7220-053a-4a8d-8f8d-0d4379536cbe/Trinity.jpg", longitude: "-78.500381", latitude:
                                     "38.034833", emoji: "🫣", coordinates: CLLocationCoordinate2D(latitude: Double( "38.034833") ?? 0.0, longitude: Double("-78.500381") ?? 0.0)))
     }

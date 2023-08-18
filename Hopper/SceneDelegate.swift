@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, ObservableObject {
             case .success(let fetchedBars):
                 print("Fetched bars:", fetchedBars)
                 for bar in fetchedBars{
-                    self.monitorRegionAtLocation(center: bar.coordinates, identifier: bar.name)
+                    self.monitorRegionAtLocation(center: bar.coordinates, identifier: bar.id)
                 }
             case .failure(let error):
                 print("Error fetching bars:", error)

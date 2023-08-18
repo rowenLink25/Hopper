@@ -56,13 +56,14 @@ class barViewModel: ObservableObject {
             
             let fetchedBars = documents.compactMap { (queryDocumentSnapshot) -> Bar? in
                 let data = queryDocumentSnapshot.data()
+                let id = queryDocumentSnapshot.documentID
                 let name = data["name"] as? String ?? ""
                 let image = data["image"] as? String ?? ""
                 let longitude = data["longitude"] as? String ?? ""
                 let latitude = data["latitude"] as? String ?? ""
                 let numUsers = data["numUsers"] as? Int ?? 0
                 let emoji = whichEmoji(numUsers: numUsers)
-                return Bar(numUsers: numUsers, name: name, image: image, longitude: longitude, latitude: latitude, emoji: emoji, coordinates: CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0))
+                return Bar(id : id, numUsers: numUsers, name: name, image: image, longitude: longitude, latitude: latitude, emoji: emoji, coordinates: CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0))
             }
             
             self.bars = fetchedBars
@@ -79,13 +80,14 @@ class barViewModel: ObservableObject {
             
             self.bars = documents.map { (queryDocumentSnapshot) -> Bar in
                 let data = queryDocumentSnapshot.data()
+                let id = queryDocumentSnapshot.documentID
                 let name = data["name"] as? String ?? ""
                 let image = data["image"] as? String ?? ""
                 let longitude = data["longitude"] as? String ?? ""
                 let latitude = data["latitude"] as? String ?? ""
                 let numUsers = data["numUsers"] as? Int ?? 0
                 let emoji = whichEmoji(numUsers : Int(numUsers))
-                return Bar(numUsers: numUsers, name: name, image: image, longitude: longitude, latitude: latitude, emoji: emoji, coordinates: CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0))
+                return Bar(id: id, numUsers: numUsers, name: name, image: image, longitude: longitude, latitude: latitude, emoji: emoji, coordinates: CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0))
             }
         }
     }
