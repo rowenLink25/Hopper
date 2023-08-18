@@ -91,14 +91,15 @@ class barViewModel: ObservableObject {
     }
     func updateNumUsers(for barName: String, increment: Bool) {
         let db = Firestore.firestore()
-        
+        print("attempting update for " + barName)
         db.collection("bars").document(barName).getDocument { (documentSnapshot, error) in
             if let error = error {
-                print("Error fetching bar data:", error)
+                print(error)
                 return
             }
             
             if let document = documentSnapshot, document.exists {
+                print("updating is working")
                 var numUsers = document.data()?["numUsers"] as? Int ?? 0
                 numUsers += increment ? 1 : -1
                 

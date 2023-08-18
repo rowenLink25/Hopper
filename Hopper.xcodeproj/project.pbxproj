@@ -36,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		2C14BBDB2A8D393300687389 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2C14BBDD2A8D9CB800687389 /* locationTest.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = locationTest.gpx; sourceTree = "<group>"; };
 		2C2A9A432A79805500405F19 /* MapScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenView.swift; sourceTree = "<group>"; };
 		2C2A9A452A79A67000405F19 /* MKCooordinateRegionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCooordinateRegionHelper.swift; sourceTree = "<group>"; };
 		2C2A9A482A7ACF7400405F19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 				2C2A9A672A83291A00405F19 /* BarAnnotationMapView.swift */,
 				2CFB28582A83FCBB00A4B9B0 /* BarPreviewView.swift */,
 				2C14BBDB2A8D393300687389 /* SceneDelegate.swift */,
+				2C14BBDD2A8D9CB800687389 /* locationTest.gpx */,
 			);
 			path = Hopper;
 			sourceTree = "<group>";

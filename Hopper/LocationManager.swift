@@ -16,7 +16,7 @@ final class LocationManager: NSObject, ObservableObject {
     override init() {
         super.init()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 5.0
+        locationManager.distanceFilter = 1.0
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
@@ -69,18 +69,7 @@ extension LocationManager: CLLocationManagerDelegate {
 //    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
 //        print("exited location")
 //    }
-    func monitorRegionAtLocation(center: CLLocationCoordinate2D, identifier: String) {
 
-            if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
-                print("viable")
-                let region = CLCircularRegion(center: center,
-                     radius: 100, identifier: identifier)
-                region.notifyOnEntry = true
-                region.notifyOnExit = true
-
-                locationManager.startMonitoring(for: region)
-            }
-     }
 //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //    let newLocation = locations.last!
 //    // We've been passed a cached result so ignore and continue.

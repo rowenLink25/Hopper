@@ -52,7 +52,7 @@ extension MapScreenView{
             }
         }
         .ignoresSafeArea()
-        .onAppear(perform: self.viewModel.fetchData)
+//        .onAppear(perform: self.viewModel.fetchData)
     }
     private var locationButton : some View {
         Button {
