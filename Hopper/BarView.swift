@@ -29,7 +29,13 @@ struct BarView: View {
                     Spacer()
                     Text("Est. Wait (mins) : " + String(bar.numUsers)).font(.subheadline)
                 }
-            }.navigationBarTitle("Bars")
+            }
+            .navigationBarTitle("")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading:
+                Text("Bars")
+                .font(.title)
+                .fontWeight(.heavy))
             .onAppear() {
                 self.viewModel.fetchData()
             }
