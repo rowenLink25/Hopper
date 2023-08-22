@@ -23,7 +23,11 @@ struct BarView: View {
                     .frame(width: 44, height: 44)
                     .background(Color.gray)
                     .clipShape(Circle())
-                    Text(bar.name).font(.title)
+                    Text(bar.name)
+                        .font(.headline)
+                        .lineLimit(2)
+                        .frame(width: 100, alignment: .leading)
+                        
                     Spacer()
                     Text("Rating: " + bar.emoji)
                     Spacer()
