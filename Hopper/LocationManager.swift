@@ -11,47 +11,19 @@ final class LocationManager: NSObject, ObservableObject {
     @Published var location: CLLocation?
     private let locationManager = CLLocationManager()
     @Published var authorizationStatus: CLAuthorizationStatus?
-    
+
     
     override init() {
         super.init()
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 1.0
+        locationManager.distanceFilter = 4.0
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.showsBackgroundLocationIndicator = false
-        locationManager.delegate = self
     }
-//    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-//            switch manager.authorizationStatus {
-//            case .authorizedWhenInUse:  // Location services are available.
-//                authorizationStatus = .authorizedWhenInUse
-//                locationManager.requestAlwaysAuthorization()
-//                break
-//
-//            case .restricted:  // Location services currently unavailable.
-//                // Insert code here of what should happen when Location services are NOT authorized
-//                authorizationStatus = .restricted
-//
-//                break
-//
-//            case .denied:  // Location services currently unavailable.
-//                // Insert code here of what should happen when Location services are NOT authorized
-//                authorizationStatus = .denied
-//
-//                break
-//
-//            case .notDetermined:        // Authorization not determined yet.
-//                authorizationStatus = .notDetermined
-//                manager.requestWhenInUseAuthorization()
-//                break
-//
-//            default:
-//                break
-//            }
-//        }
 }
 
 
@@ -63,13 +35,23 @@ extension LocationManager: CLLocationManagerDelegate {
             }
         
     }
-//    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-//        print("entered location")
-//    }
-//    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-//        print("exited location")
-//    }
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status{
 
+        case .notDetermined:
+            print("DEBUG : status not determined")
+        case .restricted:
+            print("DEBUG : status restricted")
+        case .denied:
+            print("DEBUG : status denied")
+        case .authorizedAlways:
+            print("DEBUG : status authorized always")
+        case .authorizedWhenInUse:
+            print("DEBUG : status authorized when in use")
+        @unknown default:
+            break
+        }
+    }
 //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //    let newLocation = locations.last!
 //    // We've been passed a cached result so ignore and continue.
