@@ -21,5 +21,6 @@ struct Bar: Identifiable, Equatable{
     var latitude : String
     var emoji : String
     var coordinates : CLLocationCoordinate2D
+    var waitTime : Int
 }
 

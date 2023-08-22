@@ -31,7 +31,7 @@ struct BarView: View {
                     Spacer()
                     Text("Rating: " + bar.emoji)
                     Spacer()
-                    Text("Est. Wait (mins) : " + String(bar.numUsers)).font(.subheadline)
+                    Text("Est. Wait (mins) : " + String(bar.waitTime)).font(.subheadline)
                 }
             }
             .navigationBarTitle("")

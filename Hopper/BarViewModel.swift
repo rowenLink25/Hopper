@@ -32,10 +32,29 @@ func whichEmoji(numUsers : Int) -> String {
         return "🔥"
     }
 }
-//Somehow use this to determine how long the wait time will be????
-func determineWaitTime(numUsers : Int) -> Int{
-    return 0
+func calculateWaitTime(numberOfPeople: Int, currentDate: Date) -> Int {
+    // Get current day of the week and hour
+    let calendar = Calendar.current
+    let dayOfWeek = calendar.component(.weekday, from: currentDate)
+    let hour = calendar.component(.hour, from: currentDate)
+    
+    // Check if it's Thursday, Friday, or Saturday between 5 PM and 3 AM
+    let isPeakTime = (dayOfWeek >= 5 && dayOfWeek <= 7) && (hour >= 17 || hour < 3)
+    
+    // Constants for base wait time and scaling factor
+    var baseWaitTime: Int = 0
+    let scalingFactor: Float = 0.5 // 30 minutes
+    
+    if isPeakTime {
+        baseWaitTime = 30 // 30 minutes
+    }
+    
+    // Calculate the estimated wait time
+    let waitTime = baseWaitTime + Int(scalingFactor * Float(numberOfPeople))
+    
+    return waitTime
 }
+
 class barViewModel: ObservableObject {
     
     @Published var bars = [Bar]()
@@ -63,7 +82,8 @@ class barViewModel: ObservableObject {
                 let latitude = data["latitude"] as? String ?? ""
                 let numUsers = data["numUsers"] as? Int ?? 0
                 let emoji = whichEmoji(numUsers: numUsers)
-                return Bar(id : id, numUsers: numUsers, name: name, image: image, longitude: longitude, latitude: latitude, emoji: emoji, coordinates: CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0))
+                let waitTime = calculateWaitTime(numberOfPeople: numUsers, currentDate: Date())
+                return Bar(id : id, numUsers: numUsers, name: name, image: image, longitude: longitude, latitude: latitude, emoji: emoji, coordinates: CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0), waitTime: waitTime)
             }
             
             self.bars = fetchedBars
@@ -87,7 +107,8 @@ class barViewModel: ObservableObject {
                 let latitude = data["latitude"] as? String ?? ""
                 let numUsers = data["numUsers"] as? Int ?? 0
                 let emoji = whichEmoji(numUsers : Int(numUsers))
-                return Bar(id: id, numUsers: numUsers, name: name, image: image, longitude: longitude, latitude: latitude, emoji: emoji, coordinates: CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0))
+                let waitTime = calculateWaitTime(numberOfPeople: numUsers, currentDate: Date())
+                return Bar(id : id, numUsers: numUsers, name: name, image: image, longitude: longitude, latitude: latitude, emoji: emoji, coordinates: CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0), waitTime: waitTime)
             }
         }
     }

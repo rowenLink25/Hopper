@@ -14,7 +14,7 @@ struct MapScreenView: View {
     
     @StateObject private var locationManager = LocationManager()
     @ObservedObject private var viewModel = barViewModel()
-    @State private var preview = BarPreviewView(bar: Bar(id : "", numUsers: 0, name: "none", image:"", longitude: "0", latitude: "38.034833", emoji: "🫣", coordinates: CLLocationCoordinate2D(latitude: Double( "38.034833") ?? 0.0, longitude: Double("-78.500381") ?? 0.0)))
+    @State private var preview = BarPreviewView(bar: Bar(id : "", numUsers: 0, name: "none", image:"", longitude: "0", latitude: "38.034833", emoji: "🫣", coordinates: CLLocationCoordinate2D(latitude: Double( "38.034833") ?? 0.0, longitude: Double("-78.500381") ?? 0.0), waitTime: 2))
     @State private var region = MKCoordinateRegion.cVilleRegion().getBinding()
     
     
