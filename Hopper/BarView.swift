@@ -26,6 +26,7 @@ struct BarView: View {
                     Text(bar.name)
                         .font(.headline)
                         .lineLimit(2)
+                        .frame(width: 100)
                     Spacer()
                     Text("Rating: " + bar.emoji)
                     Spacer()
