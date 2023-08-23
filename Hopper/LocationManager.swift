@@ -37,7 +37,7 @@ extension LocationManager: CLLocationManagerDelegate {
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status{
-
+//test push
         case .notDetermined:
             print("DEBUG : status not determined")
         case .restricted:
