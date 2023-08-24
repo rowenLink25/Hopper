@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BarAnnotationMapView: View {
+    var isSelected: Bool = false
+    
     let accentColor = Color.red
     var body: some View {
         VStack(spacing: 0.0){
@@ -20,6 +22,7 @@ struct BarAnnotationMapView: View {
                 .padding(6)
                 .background(accentColor)
                 .cornerRadius(36)
+                .scaleEffect(isSelected ? 1.5 : 1)
             Image(systemName: "triangle.fill")
                 .resizable()
                 .scaledToFit()
@@ -29,6 +32,7 @@ struct BarAnnotationMapView: View {
                 .offset(y: -2)
                 .padding(.bottom, 40)
         }
+        .animation(.easeInOut, value: isSelected)
     }
 }
 

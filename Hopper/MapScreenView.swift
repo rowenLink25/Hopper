@@ -10,6 +10,7 @@ import MapKit
 
 
 struct MapScreenView: View {
+    @State private var selectedBar: Bar? = nil
     
     
     @StateObject private var locationManager = LocationManager()
@@ -44,10 +45,16 @@ extension MapScreenView{
     private var mapView : some View{
         Map(coordinateRegion: region!, interactionModes: .all,  showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: viewModel.bars){ bar in
             MapAnnotation(coordinate: bar.coordinates){
-                BarAnnotationMapView()
+                BarAnnotationMapView(isSelected: bar == selectedBar)
                     .onTapGesture {
-                        preview = BarPreviewView(bar: bar)
-                        region = MKCoordinateRegion(center: bar.coordinates, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)).getBinding()
+                        if selectedBar == bar {
+                            selectedBar = nil
+                        } else {
+                            selectedBar = bar
+                            preview = BarPreviewView(bar: bar)
+                            region = MKCoordinateRegion(center: bar.coordinates, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)).getBinding()
+                        }
+                            
                     }
             }
         }
