@@ -87,7 +87,7 @@ extension MapScreenView{
                 .cornerRadius(12)
         }
         .border(.blue, width: 3)
-        .background(.white)
+//        .background(.white)
         .cornerRadius(5)
         .frame(width: 40, height: 40)
         .frame(maxWidth: .infinity, alignment: .trailing)
